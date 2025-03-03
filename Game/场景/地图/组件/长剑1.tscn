@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://d14tg6cqndjcj"]
+
+[ext_resource type="Texture2D" uid="uid://bp08muqfr688l" path="res://资源/2/Separate Sprites/forest pole 1.png" id="1_i0suj"]
+
+[node name="longsword1" type="StaticBody2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("1_i0suj")
+offset = Vector2(0, -11)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -10)
+polygon = PackedVector2Array(-2, 10, 2, 10, 2, 12, -2, 12)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-2, 0, 3, 0, 3, 3, -2, 3)

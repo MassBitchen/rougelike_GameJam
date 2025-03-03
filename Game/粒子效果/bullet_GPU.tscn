@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://e7edc7g02ftd"]
+
+[ext_resource type="Script" path="res://粒子效果/bullet_gpu.gd" id="1_rav25"]
+
+[sub_resource type="Gradient" id="Gradient_raj1l"]
+offsets = PackedFloat32Array(0, 0.397321, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ft6sm"]
+gradient = SubResource("Gradient_raj1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1wyd3"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 10, 0)
+damping_min = 100.0
+damping_max = 800.0
+color = Color(0.479361, 0.815872, 0.254655, 1)
+color_initial_ramp = SubResource("GradientTexture1D_ft6sm")
+
+[node name="bullet_GPU" type="GPUParticles2D"]
+z_index = 2
+y_sort_enabled = true
+emitting = false
+amount = 7
+process_material = SubResource("ParticleProcessMaterial_1wyd3")
+lifetime = 3.0
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+script = ExtResource("1_rav25")

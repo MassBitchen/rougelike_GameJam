@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfyjhdpc5nqbq"]
+
+[ext_resource type="Texture2D" uid="uid://dbkkoyd1ydt7x" path="res://资源/3/UI.png" id="1_kyxgf"]
+[ext_resource type="Script" path="res://场景/玩家/组件/player_point.gd" id="2_w8p2b"]
+
+[node name="PlayerPoint" type="Sprite2D"]
+position = Vector2(0, -4)
+texture = ExtResource("1_kyxgf")
+offset = Vector2(12, 0)
+region_enabled = true
+region_rect = Rect2(215, 69, 3, 5)
+script = ExtResource("2_w8p2b")

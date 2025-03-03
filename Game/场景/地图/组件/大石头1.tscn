@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://yuyupt5h4ag1"]
+
+[ext_resource type="Texture2D" uid="uid://c44tslugsrrmk" path="res://资源/2/Separate Sprites/Big Rock.png" id="1_a3f4o"]
+
+[node name="bigrock1" type="StaticBody2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a3f4o")
+offset = Vector2(12, -1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-25, 6, -5, 14, 17, 14, 35, 7, 32, 3, 19, -3, -10, -3, -23, 0)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-29, -1, -4, -9, 23, -6, 44, 7, 29, 15, -2, 17, -29, 8)
+carve_navigation_mesh = true

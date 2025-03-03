@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7rdrjppnx5tp"]
+
+[ext_resource type="Texture2D" uid="uid://dikx5448yjpe3" path="res://资源/1/gun/gun1.png" id="1_0sgoj"]
+[ext_resource type="Script" path="res://场景/玩家/枪/gun.gd" id="2_wblrb"]
+
+[sub_resource type="Animation" id="Animation_rn01y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(9, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3hi03"]
+resource_name = "shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(9, 0), Vector2(6, 0), Vector2(9, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Player_shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rw828"]
+_data = {
+"RESET": SubResource("Animation_rn01y"),
+"shoot": SubResource("Animation_3hi03")
+}
+
+[node name="gun_1" type="Sprite2D"]
+texture = ExtResource("1_0sgoj")
+offset = Vector2(9, 0)
+script = ExtResource("2_wblrb")
+path = "res://场景/玩家/子弹/bullet_1.tscn"
+bullet_speed = 800
+bullet_free_time = 5
+bullet_offset = 0.5
+
+[node name="shootPos" type="Marker2D" parent="."]
+position = Vector2(23, -3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rw828")
+}

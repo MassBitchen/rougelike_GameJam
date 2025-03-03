@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt731mr2ufgp3"]
+
+[ext_resource type="Texture2D" uid="uid://dtnbxk7ys0i0w" path="res://资源/2/Separate Sprites/forest pole 3.png" id="1_fjmh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdult"]
+size = Vector2(13, 6)
+
+[node name="rockblock2" type="StaticBody2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fjmh5")
+offset = Vector2(0, -13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_xdult")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-7, -1, 7, -1, 7, 5, -7, 5)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kbw72l5ablxu"]
+
+[ext_resource type="Script" path="res://场景/玩家/相机/camera.gd" id="1_26i3t"]
+
+[node name="Camera2D" type="Camera2D"]
+script = ExtResource("1_26i3t")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://u8mq88jkfjwl"]
+
+[ext_resource type="Script" path="res://场景/玩家/子弹/bullet.gd" id="1_b58d2"]
+[ext_resource type="Texture2D" uid="uid://cvgi0pibk464h" path="res://资源/1/bullet/bullet1.png" id="2_4oipl"]
+[ext_resource type="Shader" path="res://场景/玩家/子弹/轮廓.gdshader" id="2_jl4ag"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1egb"]
+shader = ExtResource("2_jl4ag")
+shader_parameter/outline_width = 1.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrm2g"]
+size = Vector2(18, 9)
+
+[node name="bullet_1" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_b58d2")
+free_time = 1
+normal_damage = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i1egb")
+texture = ExtResource("2_4oipl")
+region_enabled = true
+region_rect = Rect2(14, 17, 20, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hrm2g")
+
+[connection signal="hit" from="." to="." method="_on_hit"]

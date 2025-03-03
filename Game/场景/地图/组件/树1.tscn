@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://de8b6tuuvkbif"]
+
+[ext_resource type="Texture2D" uid="uid://ibui41jkvra5" path="res://资源/2/Separate Sprites/Tree1.png" id="1_3vgxa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kqi1"]
+size = Vector2(8, 3)
+
+[node name="tree1" type="StaticBody2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3vgxa")
+offset = Vector2(2, -31)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4kqi1")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(3, -2, 3, 0, -3, 0, -3, -2)

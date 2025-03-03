@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgmlb84nxk076"]
+
+[ext_resource type="Texture2D" uid="uid://cobthgm7ij4p5" path="res://资源/2/Separate Sprites/sword 3.png" id="1_iu20b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2g80k"]
+size = Vector2(5, 5)
+
+[node name="sword4" type="StaticBody2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-10, -1)
+texture = ExtResource("1_iu20b")
+offset = Vector2(12, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_2g80k")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 3.0
+carve_navigation_mesh = true

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4g57gyxuj3oy"]
+
+[ext_resource type="Texture2D" uid="uid://bxpbgcnv6xuyi" path="res://资源/2/Separate Sprites/Hand grassy.png" id="1_jbbx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud3ur"]
+size = Vector2(16, 8)
+
+[node name="hand1" type="StaticBody2D"]
+z_index = 2
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_jbbx3")
+offset = Vector2(5, -22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ud3ur")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 10.0
+carve_navigation_mesh = true

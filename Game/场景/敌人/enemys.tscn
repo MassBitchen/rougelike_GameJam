@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuo6q7vc4i57h"]
+
+[ext_resource type="Script" path="res://脚本/StateMachine.gd" id="1_l8bv2"]
+[ext_resource type="Script" path="res://场景/敌人/enemys.gd" id="1_powmy"]
+[ext_resource type="Script" path="res://脚本/Stats.gd" id="3_x3cdr"]
+
+[node name="Enemys" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_powmy")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_l8bv2")
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("3_x3cdr")

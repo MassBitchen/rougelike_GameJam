@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw0vbnaobmh2l"]
+
+[ext_resource type="Script" path="res://场景/敌人/子弹/enmey_bullet.gd" id="1_45sb8"]
+[ext_resource type="Texture2D" uid="uid://o56kurygpovg" path="res://资源/4/3/bullet.png" id="2_t4opf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmv0s"]
+size = Vector2(9, 9)
+
+[node name="Hitbox" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_45sb8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_t4opf")
+region_enabled = true
+region_rect = Rect2(18, 18, 9, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mmv0s")
