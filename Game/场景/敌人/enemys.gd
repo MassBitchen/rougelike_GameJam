@@ -6,7 +6,7 @@ class_name Enemys
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var stats: Stats = $Stats
 #移动相关
-@onready var PlayerPos
+@onready var PlayerPos :Vector2 = Vector2(0,0)
 #方向
 enum Direction {
 	LEFT = -1,

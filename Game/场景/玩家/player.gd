@@ -1,15 +1,19 @@
 extends CharacterBody2D
+class_name Player
 #组件
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var body: Node2D = $body
 #Timer
 @onready var foot_print_timer: Timer = $Timer/FootPrintTimer
 #速度相关
-const MAX_RUN_SPEED := 150
+const MAX_RUN_SPEED := 200
 var RUN_SPEED = 200
 var acceleration = RUN_SPEED / 0.01
 #玩家位置
 var PlayerPosition :Vector2 = Vector2.ZERO
+#鼠标图标
+var cursor_texture = load("res://资源/shoot.png")
+var cursor_texture_2 = load("res://资源/shoot.png")
 #方向
 enum Direction {
 	LEFT = -1,
@@ -33,6 +37,8 @@ const KNOCKBACK_AMOUNT := 312.0
 var pending_damage: Damage
 @onready var stats: Stats = $Stats
 var hit_global_position :Vector2
+#可交互物体
+var interacting_with: Array[Interactable]
 #所有状态
 enum State{
 	IDLE_DOWN,
@@ -50,6 +56,10 @@ enum State{
 	HURT,
 	DIE,
 }
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("tall") and interacting_with:
+		interacting_with.back().interact()
 
 func tick_physics(state: State, _delta: float) -> void:
 	Player_globalposition()
@@ -260,6 +270,13 @@ func Player_footprint() -> void:
 func Player_globalposition() -> void:
 	PlayerPosition = self.global_position
 	GlobalSignal.emit_signal("player_position_update",PlayerPosition)
+#可交互函数，死亡状态不能交互，需要判断还未加上去
+func register_interactable(v: Interactable) -> void:
+	if v in interacting_with:
+		return
+	interacting_with.append(v)
+func unregister_interactable(v: Interactable) -> void:
+	interacting_with.erase(v)
 #信号
 func _on_foot_print_timer_timeout() -> void:
 	Player_footprint()

@@ -1,0 +1,12 @@
+id,en,ch
+talk,"TALK","交谈"
+start,"START","开始游戏"
+options,"OPTIONS","游戏设置"
+back,"BACK","返回"
+language,"LANGUAGE","语言"
+scanline,"SCANLINE","扫描线"
+player_1,"A former special forces armorer turned mercenary, Marcus has spent 18 years mastering every firearm that enters his calloused hands. From urban warfare to jungle operations, his weapons maintenance skills and ballistic calculations remain operational in any combat environment.","马库斯曾是一名特种部队装甲兵，后来成为一名雇佣兵，他花了18年时间掌握了进入他冷酷无情的手中的每一把枪。从城市战争到丛林作战，他的武器维护技能和弹道计算在任何作战环境中都可以使用。"
+player_2,"????????","????????"
+npc_1_1,"Welcome to [color=red][wave]the Forst!","欢迎来到[color=red][wave]森林！"
+npc_1_2,"Here are some good things to give you.","这里有一些送你的好东西。"
+npc_1_3,"Good luck!","祝你好运！"

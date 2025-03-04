@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0urka1r7ke00"]
+
+[ext_resource type="TileSet" uid="uid://mtjvvlghnyix" path="res://资源/dark_forset.tres" id="1_0p7yn"]
+[ext_resource type="Script" path="res://场景/level/level.gd" id="1_pyl04"]
+[ext_resource type="PackedScene" uid="uid://kbw72l5ablxu" path="res://场景/玩家/相机/camera.tscn" id="2_rb6t6"]
+
+[node name="Level" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_pyl04")
+
+[node name="tile" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="tile"]
+tile_set = ExtResource("1_0p7yn")
+
+[node name="Camera2D" parent="." instance=ExtResource("2_rb6t6")]

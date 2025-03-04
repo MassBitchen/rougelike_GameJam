@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://场景/玩家/组件/player_point.gd" id="2_w8p2b"]
 
 [node name="PlayerPoint" type="Sprite2D"]
-position = Vector2(0, -4)
+position = Vector2(0, -7)
 texture = ExtResource("1_kyxgf")
-offset = Vector2(12, 0)
+offset = Vector2(30, 0)
 region_enabled = true
-region_rect = Rect2(215, 69, 3, 5)
+region_rect = Rect2(645, 207, 9, 15)
 script = ExtResource("2_w8p2b")

@@ -24,6 +24,7 @@ func damage() -> float:
 
 #信号
 func _on_hit(hurtbox: Hurtbox) -> void:
+	Game.shake_camera(3)
 	var fx = GPU.instantiate()
 	fx.global_position = self.global_position
 	fx.emitting = true

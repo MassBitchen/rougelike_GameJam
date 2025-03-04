@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://civolgderwma4"
+
+[deps]
+
+files=["res://资源/5/data.en.translation", "res://资源/5/data.ch.translation"]
+
+source_file="res://资源/5/data.csv"
+dest_files=["res://资源/5/data.en.translation", "res://资源/5/data.ch.translation"]
+
+[params]
+
+compress=true
+delimiter=0

@@ -1,0 +1,110 @@
+[gd_scene load_steps=16 format=3 uid="uid://21rm0lacft7o"]
+
+[ext_resource type="Script" path="res://场景/NPC/NPC_1/npc_1.gd" id="1_ilv85"]
+[ext_resource type="Texture2D" uid="uid://1142onm7ecsv" path="res://资源/6/1/Skull Merchant-Idle Blue.png" id="1_rs7gq"]
+[ext_resource type="PackedScene" uid="uid://cvrh5iso5kj1r" path="res://场景/玩家/组件/talk_icon.tscn" id="3_7b6hq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apatl"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(0, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmuk2"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(123, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqiqk"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(246, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_326uq"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(369, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff0pk"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(492, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4sxl"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(615, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjfhu"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(738, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3og7"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(861, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcjjp"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(984, 0, 123, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07lsp"]
+atlas = ExtResource("1_rs7gq")
+region = Rect2(1107, 0, 123, 99)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56qi7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apatl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmuk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqiqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_326uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff0pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4sxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjfhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3og7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcjjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07lsp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4v0qf"]
+radius = 29.0
+height = 134.0
+
+[node name="NPC_1" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+script = ExtResource("1_ilv85")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_56qi7")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.959113
+offset = Vector2(0, -26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4v0qf")
+
+[node name="talk_icon" parent="." instance=ExtResource("3_7b6hq")]
+visible = false
+position = Vector2(-4, -83)
+
+[connection signal="enter" from="." to="." method="_on_enter"]
+[connection signal="exit" from="." to="." method="_on_exit"]

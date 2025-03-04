@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://4oe11rqrc8nr"]
+
+[ext_resource type="Script" path="res://全局系统/Dialog.gd" id="1_vpmdj"]
+
+[node name="DialogBox" type="CanvasLayer"]
+script = ExtResource("1_vpmdj")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -444.0
+offset_top = 322.0
+offset_right = 456.0
+offset_bottom = 521.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Content" type="RichTextLabel" parent="PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "\"Codex of the Ninth\"
+
+Beneath the pulse of pixels, worlds ignite—
+A mosaic stitched from every art’s old flame:
+Here, Homer’s ghosts dance in Dante’s twilight,
+And Rembrandt’s shadows bleed through Turing’s frame.
+
+You wield the brush, yet the canvas breathes back—
+A labyrinth where choice etches its creed,
+Each if and then a synapse, branching black,
+As endings bloom like fractals from a seed.
+
+O digital cathedral! Your vaults extend
+Beyond the scroll, the stage, the celluloid reel—
+In your glow, we’re both composer and penned,
+Gods of consequence, yet mortals who feel.
+
+What palette dares claim this hybrid throne?
+You—alchemy of mind and silicon bone."

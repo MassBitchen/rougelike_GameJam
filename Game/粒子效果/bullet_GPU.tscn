@@ -19,17 +19,20 @@ initial_velocity_max = 150.0
 gravity = Vector3(0, 10, 0)
 damping_min = 100.0
 damping_max = 800.0
+scale_min = 3.0
+scale_max = 3.0
 color = Color(0.479361, 0.815872, 0.254655, 1)
 color_initial_ramp = SubResource("GradientTexture1D_ft6sm")
 
 [node name="bullet_GPU" type="GPUParticles2D"]
 z_index = 2
 y_sort_enabled = true
+scale = Vector2(3, 3)
 emitting = false
-amount = 7
+amount = 15
 process_material = SubResource("ParticleProcessMaterial_1wyd3")
-lifetime = 3.0
+lifetime = 2.0
 one_shot = true
-speed_scale = 0.5
 explosiveness = 1.0
+randomness = 0.5
 script = ExtResource("1_rav25")

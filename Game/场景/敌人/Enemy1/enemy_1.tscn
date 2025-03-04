@@ -860,6 +860,7 @@ _data = {
 }
 
 [node name="Enemy1" instance=ExtResource("1_kk15f")]
+scale = Vector2(3, 3)
 script = ExtResource("2_481cq")
 
 [node name="Sprite2D" parent="Body" index="0"]
