@@ -1,7 +1,9 @@
 extends Area2D
 class_name Interactable
 
-signal interacted
+var Game_Player :Player
+
+signal interacted()
 signal enter()
 signal exit()
 
@@ -18,6 +20,7 @@ func interact() -> void:
 	interacted.emit()
 
 func _on_body_entered(player: Player) -> void:
+	Game_Player = player
 	player.register_interactable(self)
 	enter.emit()
 

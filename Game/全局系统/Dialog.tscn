@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://4oe11rqrc8nr"]
+[gd_scene load_steps=6 format=3 uid="uid://4oe11rqrc8nr"]
 
 [ext_resource type="Script" path="res://全局系统/Dialog.gd" id="1_vpmdj"]
+[ext_resource type="Texture2D" uid="uid://1142onm7ecsv" path="res://资源/6/1/Skull Merchant-Idle Blue.png" id="2_5ard6"]
+[ext_resource type="Texture2D" uid="uid://dbkkoyd1ydt7x" path="res://资源/3/UI.png" id="2_fixa6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vi4gx"]
+texture = ExtResource("2_fixa6")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(579, 3, 138, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idrcb"]
+atlas = ExtResource("2_5ard6")
+region = Rect2(25, -5, 66, 64)
 
 [node name="DialogBox" type="CanvasLayer"]
 script = ExtResource("1_vpmdj")
@@ -17,6 +31,11 @@ offset_right = 456.0
 offset_bottom = 521.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_vi4gx")
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -28,7 +47,10 @@ theme_override_constants/margin_bottom = 32
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/normal_font_size = 24
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "\"Codex of the Ninth\"
 
@@ -49,3 +71,9 @@ Gods of consequence, yet mortals who feel.
 
 What palette dares claim this hybrid throne?
 You—alchemy of mind and silicon bone."
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = SubResource("AtlasTexture_idrcb")
+expand_mode = 3

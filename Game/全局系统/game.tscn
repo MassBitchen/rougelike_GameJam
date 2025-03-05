@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://beupk015eomgy"]
+[gd_scene load_steps=11 format=3 uid="uid://beupk015eomgy"]
 
 [ext_resource type="Script" path="res://全局系统/Game.gd" id="1_lyxo3"]
 [ext_resource type="Shader" path="res://shader/scanlines.gdshader" id="2_3vych"]
 [ext_resource type="Texture2D" uid="uid://dbkkoyd1ydt7x" path="res://资源/3/UI.png" id="3_81k2r"]
+[ext_resource type="Shader" path="res://shader/scanlines_2.gdshader" id="3_86u5j"]
+[ext_resource type="Script" path="res://脚本/Stats.gd" id="3_t43t4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ye88v"]
 shader = ExtResource("2_3vych")
@@ -27,6 +29,13 @@ shader_parameter/warp_amount = 0.0
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yobxh"]
+shader = ExtResource("3_86u5j")
+shader_parameter/scanline_color = Color(0, 0, 0, 0.243137)
+shader_parameter/scanline_spacing = 8.0
+shader_parameter/scanline_width = 0.5
+shader_parameter/edge_softness = 0.1
 
 [sub_resource type="Animation" id="Animation_7u08n"]
 length = 0.001
@@ -222,7 +231,8 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="scanline" type="ColorRect" parent="."]
+[node name="scanline_2" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_ye88v")
 anchors_preset = 15
 anchor_right = 1.0
@@ -230,6 +240,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="scanline" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yobxh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource("3_t43t4")
 
 [node name="Lodging" type="Node2D" parent="."]
 
@@ -246,3 +268,34 @@ region_rect = Rect2(144, 388, 192, 48)
 libraries = {
 "": SubResource("AnimationLibrary_87dv8")
 }
+
+[node name="level" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="level_name" type="Label" parent="level"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -47.0
+offset_right = 351.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.986752, 0.986752, 0.986752, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 64
+text = "BATTLE"
+horizontal_alignment = 1
+autowrap_mode = 2

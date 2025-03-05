@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://fq68j5aklqch"]
+
+[ext_resource type="Script" path="res://全局系统/sound_manager.gd" id="1_yjkha"]
+
+[node name="SoundManager" type="Node"]
+script = ExtResource("1_yjkha")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="UIPress" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="UIFocus" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="player_1_run" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="player_1_roll" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="gun_1_shoot" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"BGM"

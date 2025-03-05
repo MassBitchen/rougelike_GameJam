@@ -62,6 +62,7 @@ path = "res://场景/玩家/子弹/bullet_1.tscn"
 bullet_speed = 800
 bullet_free_time = 5
 bullet_offset = 0.5
+pick_up = "res://场景/玩家/枪/gun1/gun_1_pickup.tscn"
 
 [node name="shootPos" type="Marker2D" parent="."]
 position = Vector2(23, -3)
@@ -70,3 +71,5 @@ position = Vector2(23, -3)
 libraries = {
 "": SubResource("AnimationLibrary_rw828")
 }
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

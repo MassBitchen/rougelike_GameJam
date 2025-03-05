@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://byto5sxani83h"]
+
+[ext_resource type="Script" path="res://UI/Player/ui_health_bar.gd" id="1_piofk"]
+[ext_resource type="Texture2D" uid="uid://dbkkoyd1ydt7x" path="res://资源/3/UI.png" id="2_f3333"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcckh"]
+atlas = ExtResource("2_f3333")
+region = Rect2(622, 384, 180, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4orgi"]
+atlas = ExtResource("2_f3333")
+region = Rect2(625, 405, 174, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je0bj"]
+atlas = ExtResource("2_f3333")
+region = Rect2(625, 405, 174, 3)
+
+[node name="UI_health_bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_piofk")
+
+[node name="V" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 28.0
+offset_right = 228.0
+offset_bottom = 68.0
+scale = Vector2(1.6, 1.6)
+mouse_filter = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="V"]
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_over = SubResource("AtlasTexture_hcckh")
+texture_progress = SubResource("AtlasTexture_4orgi")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="EnergyBar" type="TextureProgressBar" parent="V"]
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_je0bj")
+texture_progress_offset = Vector2(3, 0)

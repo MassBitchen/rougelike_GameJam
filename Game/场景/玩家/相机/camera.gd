@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var p2 = self.global_position
-	if Input.get_action_strength("shoot"):
+	if Input.get_action_strength("aim"):
 		p1 = PlayerPos.lerp(get_global_mouse_position(), 0.2)
 	else:
 		p1 = PlayerPos

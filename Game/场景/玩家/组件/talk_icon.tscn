@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvrh5iso5kj1r"]
+[gd_scene load_steps=6 format=3 uid="uid://cvrh5iso5kj1r"]
 
 [ext_resource type="Texture2D" uid="uid://dbkkoyd1ydt7x" path="res://资源/3/UI.png" id="1_qj12h"]
+[ext_resource type="Script" path="res://场景/玩家/组件/talk_icon.gd" id="2_edr5c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwxlq"]
 atlas = ExtResource("1_qj12h")
@@ -29,10 +30,12 @@ position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_hdufu")
 autoplay = "default"
 frame_progress = 0.535295
+script = ExtResource("2_edr5c")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -19.0
-offset_top = -22.0
-offset_right = 24.0
+offset_left = -104.0
+offset_top = -24.0
+offset_right = 108.0
 offset_bottom = 11.0
 text = "talk"
+horizontal_alignment = 1

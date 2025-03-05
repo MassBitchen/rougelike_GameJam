@@ -105,6 +105,8 @@ shape = SubResource("CapsuleShape2D_4v0qf")
 [node name="talk_icon" parent="." instance=ExtResource("3_7b6hq")]
 visible = false
 position = Vector2(-4, -83)
+talk_name = "talk"
 
 [connection signal="enter" from="." to="." method="_on_enter"]
 [connection signal="exit" from="." to="." method="_on_exit"]
+[connection signal="interacted" from="." to="." method="_on_interacted"]

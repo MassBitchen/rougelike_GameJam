@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://xexrmk8bgt4u"]
+
+[ext_resource type="Script" path="res://UI/组件/volume_slider.gd" id="1_agkeo"]
+
+[node name="VolumeSlider" type="HSlider"]
+custom_minimum_size = Vector2(256, 16)
+offset_right = 389.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.0
+script = ExtResource("1_agkeo")

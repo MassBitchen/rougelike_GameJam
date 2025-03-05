@@ -35,8 +35,9 @@ var footprint = load("res://场景/玩家/组件/footprint.tscn")
 #受伤和死亡
 const KNOCKBACK_AMOUNT := 312.0
 var pending_damage: Damage
-@onready var stats: Stats = $Stats
 var hit_global_position :Vector2
+#血量
+@onready var stats: Node = Game.player_stats
 #可交互物体
 var interacting_with: Array[Interactable]
 #所有状态
@@ -56,6 +57,11 @@ enum State{
 	HURT,
 	DIE,
 }
+func _ready() -> void:
+	stats.max_health = 5
+	stats.health = 5
+	stats.max_energy = 10
+	stats.energy = 10
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("tall") and interacting_with:
@@ -107,7 +113,7 @@ func get_next_state(state: State) -> int:
 				if velocity.y < 0:
 					return State.WALK_UP
 	#翻滚实现
-	if Input.is_action_just_pressed("roll"):
+	if Input.is_action_just_pressed("roll") and stats.energy >= 5:
 		if not state == State.ROLL_DOWN and not state == State.ROLL_UP and not state == State.ROLL_LR:
 			if mov_direction.x == 0:
 				if mov_direction.y > 0:
@@ -119,6 +125,9 @@ func get_next_state(state: State) -> int:
 	#受伤
 	if pending_damage:
 		return State.HURT
+	#死亡
+	if stats.health == 0:
+		return StateMachine.KEEP_CURRENT if state == State.DIE else State.DIE
 	match state:
 		State.IDLE_DOWN:
 			pass
@@ -221,25 +230,33 @@ func transition_state(_from: State, to: State) -> void:
 		State.ROLL_DOWN:
 			animation_player.play("roll_down")
 			weapon.visible = false
+			stats.energy -= 5
 		State.ROLL_UP:
 			animation_player.play("roll_up")
 			weapon.visible = false
+			stats.energy -= 5
 		State.ROLL_LR:
 			animation_player.play("roll_lr")
 			weapon.visible = false
+			stats.energy -= 5
 		State.HURT:
 			animation_player.play("hurt")
 			velocity = Vector2.ZERO
-			#var dir := hit_global_position.direction_to(self.global_position)
-			#velocity += dir * KNOCKBACK_AMOUNT
+			if pending_damage.source:
+				var dir := pending_damage.source.global_position.direction_to(self.global_position)
+				velocity += dir * KNOCKBACK_AMOUNT
 			pending_damage = null
 		State.DIE:
 			animation_player.play("die")
+			for gun in weapon.get_children():
+				gun.queue_free()
+			
 
 #基础玩家脚本
 func Player_move(delta: float,rate: float) -> void:
-	if Input.get_action_strength("shift"):
+	if Input.get_action_strength("shift") and stats.energy > 0.3:
 		RUN_SPEED = MAX_RUN_SPEED
+		stats.energy -= 3 * delta
 	else:
 		RUN_SPEED = 2 * MAX_RUN_SPEED / 3
 	#实现玩家移动方向
@@ -283,7 +300,7 @@ func _on_foot_print_timer_timeout() -> void:
 func _on_hurtbox_hurt(hitbox: Variant) -> void:
 	pending_damage = Damage.new()
 	pending_damage.amount = 1
-	#pending_damage.source = hitbox.owner
+	pending_damage.source = hitbox.owner
 	#hit_global_position = hitbox.owner.global_position
 	stats.health -= pending_damage.amount
 	

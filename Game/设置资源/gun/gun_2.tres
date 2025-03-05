@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://cl7agdinsqvfo"]
+
+[ext_resource type="Script" path="res://设置资源/gun/weapon.gd" id="1_lbbyv"]
+
+[resource]
+script = ExtResource("1_lbbyv")
+name = "Powerful Thrower"
+money = 20
+description = "虽说是gun_2，但是是玩家第一个可以获得的枪械，发射更大的子弹，更高的伤害，更长的装填时间，更少的子弹容量，击中效果"
+ps = ""
+player_can_use = "res://场景/玩家/枪/gun2/gun_2.tscn"
+Pickup = ""

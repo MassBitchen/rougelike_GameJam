@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ubiymyslt0ly"]
+
+[ext_resource type="Script" path="res://场景/玩家/枪/gun1/gun_1_pickup.gd" id="1_vsfs1"]
+[ext_resource type="Texture2D" uid="uid://dikx5448yjpe3" path="res://资源/1/gun/gun1.png" id="2_odp0v"]
+[ext_resource type="Shader" path="res://shader/outline.gdshader" id="2_wws3o"]
+[ext_resource type="PackedScene" uid="uid://cvrh5iso5kj1r" path="res://场景/玩家/组件/talk_icon.tscn" id="4_hlvnm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_numl2"]
+shader = ExtResource("2_wws3o")
+shader_parameter/Smooth = true
+shader_parameter/width = 10.0
+shader_parameter/outline_color = Vector4(234, 324, 0, 1)
+shader_parameter/pixel_size = 10
+shader_parameter/width_speed = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g13gd"]
+size = Vector2(38, 18)
+
+[node name="gun_1_pickup" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0, 17)
+script = ExtResource("1_vsfs1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_numl2")
+texture = ExtResource("2_odp0v")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_g13gd")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="talk_icon" parent="." instance=ExtResource("4_hlvnm")]
+visible = false
+position = Vector2(-1, -17)
+
+[connection signal="enter" from="." to="." method="_on_enter"]
+[connection signal="exit" from="." to="." method="_on_exit"]
+[connection signal="interacted" from="." to="." method="_on_interacted"]

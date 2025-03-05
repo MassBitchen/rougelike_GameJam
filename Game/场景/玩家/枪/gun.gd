@@ -11,6 +11,13 @@ class_name Gun
 var mov_direction : Vector2
 @onready var BULLET = load(path)
 
+@export_file("*.tscn") var pick_up
+var self_tree
+var self_pos
+
+func _ready() -> void:
+	self_tree = get_parent().get_parent().get_parent()
+
 func _unhandled_input(event: InputEvent) -> void:
 	pass
 
@@ -29,6 +36,7 @@ func _physics_process(_delta: float) -> void:
 		#self.scale.y = 1
 		
 	#鼠标
+	self_pos = self.global_position
 	mov_direction = (get_global_mouse_position() - self.global_position).normalized()
 	if mov_direction.x < 0:
 		self.scale.y = -1
@@ -47,3 +55,10 @@ func Player_shoot() -> void:
 	bullet.ShootPos = Vector2.from_angle(mov_direction.angle() + randf_range(-PI/16 * bullet_offset, +PI/16 * bullet_offset))
 	#这里需要修改，感觉写的不太好
 	get_parent().get_parent().get_parent().add_child(bullet)
+
+
+func _on_tree_exited() -> void:
+	var g = load(pick_up).instantiate()
+	g.global_position = self_pos
+	#这里需要修改，感觉写的不太好
+	self_tree.add_child(g)
