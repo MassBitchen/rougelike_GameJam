@@ -15,7 +15,17 @@ var mov_direction : Vector2
 var self_tree
 var self_pos
 
+@export var shoot_sfx :String
+@export var reload_sfx :String
+@export var max_bullet_num :int
+@onready var now_bullet_num := max_bullet_num
+@onready var bullet_num: Label = $CanvasLayer/bullet_num
+@onready var bullet_num_bar: TextureProgressBar = $bullet_num_bar
+
+
 func _ready() -> void:
+	bullet_num_bar.max_value = max_bullet_num
+	bullet_num_bar.value = bullet_num_bar.max_value
 	self_tree = get_parent().get_parent().get_parent()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -44,10 +54,18 @@ func _physics_process(_delta: float) -> void:
 		self.scale.y = 1
 	self.rotation = mov_direction.angle()
 	#射击
-	if Input.get_action_strength("shoot"):
+	if Input.get_action_strength("shoot") and not animation_player.is_playing() and now_bullet_num > 0:
 		animation_player.play("shoot")
+	if Input.is_action_pressed("reload"):
+		animation_player.play("reload")
+		SoundManager.play_sfx(reload_sfx)
+	
+	bullet_num_bar.value = now_bullet_num
+	bullet_num.text = str(now_bullet_num) + str("/") + str(max_bullet_num)
+	
 	
 func Player_shoot() -> void:
+	SoundManager.play_sfx(shoot_sfx)
 	var bullet = BULLET.instantiate()
 	bullet.global_position = shoot_pos.global_position
 	bullet.free_time = bullet_free_time
@@ -55,10 +73,16 @@ func Player_shoot() -> void:
 	bullet.ShootPos = Vector2.from_angle(mov_direction.angle() + randf_range(-PI/16 * bullet_offset, +PI/16 * bullet_offset))
 	#这里需要修改，感觉写的不太好
 	get_parent().get_parent().get_parent().add_child(bullet)
-
+	now_bullet_num -= 1
+	if now_bullet_num == 0:
+		animation_player.play("reload")
+		SoundManager.play_sfx(reload_sfx)
 
 func _on_tree_exited() -> void:
 	var g = load(pick_up).instantiate()
 	g.global_position = self_pos
 	#这里需要修改，感觉写的不太好
 	self_tree.add_child(g)
+
+func reload() -> void:
+	now_bullet_num = max_bullet_num

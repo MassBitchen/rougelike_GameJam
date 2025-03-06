@@ -230,15 +230,15 @@ func transition_state(_from: State, to: State) -> void:
 		State.ROLL_DOWN:
 			animation_player.play("roll_down")
 			weapon.visible = false
-			stats.energy -= 5
+			stats.energy -= 2
 		State.ROLL_UP:
 			animation_player.play("roll_up")
 			weapon.visible = false
-			stats.energy -= 5
+			stats.energy -= 2
 		State.ROLL_LR:
 			animation_player.play("roll_lr")
 			weapon.visible = false
-			stats.energy -= 5
+			stats.energy -= 2
 		State.HURT:
 			animation_player.play("hurt")
 			velocity = Vector2.ZERO

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlhywlx0co5n1"]
+
+[ext_resource type="Script" path="res://脚本/Teleporter.gd" id="1_j5mim"]
+[ext_resource type="Texture2D" uid="uid://3xbne5qpo3sm" path="res://资源/door.png" id="2_6cri0"]
+[ext_resource type="PackedScene" uid="uid://cvrh5iso5kj1r" path="res://场景/玩家/组件/talk_icon.tscn" id="3_t272a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3ws8"]
+size = Vector2(63, 39)
+
+[node name="door" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+script = ExtResource("1_j5mim")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_6cri0")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -17.5)
+shape = SubResource("RectangleShape2D_m3ws8")
+
+[node name="talk_icon" parent="." instance=ExtResource("3_t272a")]
+visible = false
+position = Vector2(-1, -89)
+talk_name = "entry"
+
+[connection signal="enter" from="." to="." method="_on_enter"]
+[connection signal="exit" from="." to="." method="_on_exit"]

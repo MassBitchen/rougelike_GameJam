@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://场景/玩家/相机/camera.gd" id="1_26i3t"]
 
 [node name="Camera2D" type="Camera2D"]
+zoom = Vector2(1.4, 1.4)
 script = ExtResource("1_26i3t")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://x2a8ca0vwec7"]
+[gd_scene load_steps=27 format=3 uid="uid://x2a8ca0vwec7"]
 
 [ext_resource type="Script" path="res://场景/玩家/player.gd" id="1_p6tel"]
 [ext_resource type="Texture2D" uid="uid://chefhcxnc5ser" path="res://资源/1/Player.png" id="2_p43xq"]
 [ext_resource type="Script" path="res://脚本/StateMachine.gd" id="3_gg5vm"]
 [ext_resource type="PackedScene" uid="uid://cfyjhdpc5nqbq" path="res://场景/玩家/组件/player_point.tscn" id="3_reqh1"]
 [ext_resource type="Script" path="res://脚本/Hurtbox.gd" id="4_u1r6e"]
+[ext_resource type="PackedScene" uid="uid://qh3qu30wn6ir" path="res://UI/Player/ui_skull_num.tscn" id="7_6h3tw"]
 [ext_resource type="PackedScene" uid="uid://byto5sxani83h" path="res://UI/Player/ui_health_bar.tscn" id="7_6umav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ha4sk"]
@@ -1075,6 +1076,8 @@ script = ExtResource("3_gg5vm")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="UI_health_bar" parent="UI" instance=ExtResource("7_6umav")]
+
+[node name="UI_skull_num" parent="UI" instance=ExtResource("7_6h3tw")]
 
 [connection signal="hurt" from="body/Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="timeout" from="Timer/FootPrintTimer" to="." method="_on_foot_print_timer_timeout"]

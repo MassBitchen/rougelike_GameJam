@@ -119,6 +119,8 @@ func transition_state(_from: State, to: State) -> void:
 			animation_player.play("die")
 			navigation_agent_2d.avoidance_enabled = false
 			rotation = PI * randf_range(0,1)
+			SoundManager.play_sfx("enemy_die")
+			Enemys_skull(1)
 
 #基础移动函数
 func Enemy_move(_delta: float,rate: float) -> void:
@@ -148,6 +150,8 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	velocity = safe_velocity
 	move_and_slide()
 func _on_hurtbox_hurt(hitbox: Bullet) -> void:
+	SoundManager.play_sfx("Enemy_hurt")
+	
 	pending_damage = Damage.new()
 	pending_damage.amount = hitbox.damage()
 	pending_damage.source = hitbox.owner

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6c6she18l60q"]
+
+[ext_resource type="Texture2D" uid="uid://c51w53tgl3exc" path="res://资源/4/1/Tribe Warrior 64_96.png" id="1_imr2u"]
+[ext_resource type="Script" path="res://场景/敌人/物品/skull_coin.gd" id="2_g3bh1"]
+
+[node name="skull_coin" type="Sprite2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(3, 3)
+texture = ExtResource("1_imr2u")
+region_enabled = true
+region_rect = Rect2(536, 922, 7, 7)
+script = ExtResource("2_g3bh1")

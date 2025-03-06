@@ -1,5 +1,6 @@
 id,en,ch
 talk,"TALK","交谈"
+entry,"ENTRY","进入"
 start,"START","开始游戏"
 options,"OPTIONS","游戏设置"
 back,"BACK","返回"
@@ -15,3 +16,4 @@ npc_1_2,"Here are some good things to give you.","这里有一些送你的好东
 npc_1_3,"Good luck!","祝你好运！"
 gun_1,"Wilderness raiders","荒野掠夺者"
 gun_2,"Powerful Thrower","强力投掷器"
+gun_10,"Mini Gun","小手枪"

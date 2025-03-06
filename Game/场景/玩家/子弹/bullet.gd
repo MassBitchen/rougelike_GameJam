@@ -9,6 +9,8 @@ var Speed
 var ShootPos
 
 func _ready() -> void:
+	var tween := create_tween()
+	tween.tween_property(self, "scale", Vector2(1,1), 0.3)
 	if Speed and ShootPos:
 		self.rotation = ShootPos.angle()
 		await get_tree().create_timer(free_time).timeout

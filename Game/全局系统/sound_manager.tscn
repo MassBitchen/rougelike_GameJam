@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://fq68j5aklqch"]
+[gd_scene load_steps=7 format=3 uid="uid://fq68j5aklqch"]
 
 [ext_resource type="Script" path="res://全局系统/sound_manager.gd" id="1_yjkha"]
+[ext_resource type="AudioStream" uid="uid://r62lucue043" path="res://资源/7/SFX/gun_2_shoot.wav" id="3_3sj5o"]
+[ext_resource type="AudioStream" uid="uid://cylirfe8a2whx" path="res://资源/7/SFX/enemy_die.wav" id="3_av14k"]
+[ext_resource type="AudioStream" uid="uid://b0aa4xt73k5ic" path="res://资源/7/SFX/gun_1_shoot.wav" id="3_d5mpw"]
+[ext_resource type="AudioStream" uid="uid://cwti5f4ddar75" path="res://资源/7/SFX/reload_1.wav" id="4_7ogab"]
+[ext_resource type="AudioStream" uid="uid://d1koki5dp0psk" path="res://资源/7/SFX/reload_2.wav" id="5_ajh4g"]
 
 [node name="SoundManager" type="Node"]
 script = ExtResource("1_yjkha")
@@ -20,6 +25,27 @@ bus = &"SFX"
 bus = &"SFX"
 
 [node name="gun_1_shoot" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_d5mpw")
+bus = &"SFX"
+
+[node name="gun_2_shoot" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_3sj5o")
+volume_db = 10.0
+bus = &"SFX"
+
+[node name="reload_1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_7ogab")
+bus = &"SFX"
+
+[node name="reload_2" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_ajh4g")
+bus = &"SFX"
+
+[node name="Enemy_hurt" type="AudioStreamPlayer" parent="SFX"]
+bus = &"SFX"
+
+[node name="enemy_die" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_av14k")
 bus = &"SFX"
 
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="."]

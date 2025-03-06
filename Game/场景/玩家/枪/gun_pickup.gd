@@ -8,8 +8,8 @@ var k = 0
 
 func _ready() -> void:
 	randomize()
-	velocity = Vector2(randi_range(-300,300), randi_range(-400,-800))
-	await get_tree().create_timer(1.1).timeout
+	velocity = Vector2(randi_range(-150,150), randi_range(-400,-600))
+	await get_tree().create_timer(abs(velocity.y)/500).timeout
 	k = 1
 	velocity = Vector2.ZERO
 

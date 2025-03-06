@@ -7,6 +7,8 @@ class_name Enemys
 @onready var stats: Stats = $Stats
 #移动相关
 @onready var PlayerPos :Vector2 = Vector2(0,0)
+#死亡
+var skull = load("res://场景/敌人/物品/skull_coin.tscn")
 #方向
 enum Direction {
 	LEFT = -1,
@@ -26,3 +28,9 @@ func _ready() -> void:
 
 func _on_player_position_update(PlayerPosition):
 	PlayerPos = PlayerPosition
+
+func Enemys_skull(time: int) -> void:
+	for i in time:
+		var S = skull.instantiate()
+		S.global_position = self.global_position
+		get_parent().add_child(S)
