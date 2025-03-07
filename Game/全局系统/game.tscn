@@ -243,6 +243,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="scanline" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_yobxh")
 anchors_preset = 15
 anchor_right = 1.0
@@ -253,6 +254,7 @@ mouse_filter = 2
 
 [node name="PlayerStats" type="Node" parent="."]
 script = ExtResource("3_t43t4")
+max_health = 5
 
 [node name="Lodging" type="Node2D" parent="."]
 

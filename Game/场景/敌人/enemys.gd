@@ -33,4 +33,4 @@ func Enemys_skull(time: int) -> void:
 	for i in time:
 		var S = skull.instantiate()
 		S.global_position = self.global_position
-		get_parent().add_child(S)
+		get_parent().get_parent().add_child(S)

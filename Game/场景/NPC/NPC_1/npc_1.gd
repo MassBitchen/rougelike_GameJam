@@ -19,15 +19,19 @@ func _on_interacted() -> void:
 		{text = ""},
 		{text = "npc_1_1"},
 		{text = "npc_1_2"},
-		{text = "npc_1_3"}
-		])
-		await get_tree().create_timer(1).timeout
-		var g = gun.instantiate()
-		g.global_position = self.global_position
-		#这里需要修改，感觉写的不太好
-		get_parent().add_child(g)
+		{text = "npc_1_3"},
+		{text = "npc_1_4"},
+		{text = "npc_1_5"},
+		{text = "npc_1_6"},
+		{text = "npc_1_7"}
+		],1)
 	else:
 		Dialog.show_dialog_box([
 		{text = ""},
-		{text = "npc_1_3"}
-		])
+		{text = "npc_1_2"},
+		{text = "npc_1_3"},
+		{text = "npc_1_4"},
+		{text = "npc_1_5"},
+		{text = "npc_1_6"},
+		{text = "npc_1_7"}
+		],1)

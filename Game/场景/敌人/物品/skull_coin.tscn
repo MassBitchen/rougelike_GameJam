@@ -1,13 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6c6she18l60q"]
+[gd_scene load_steps=5 format=3 uid="uid://b6c6she18l60q"]
 
-[ext_resource type="Texture2D" uid="uid://c51w53tgl3exc" path="res://资源/4/1/Tribe Warrior 64_96.png" id="1_imr2u"]
+[ext_resource type="Texture2D" uid="uid://oycuhkodqlxr" path="res://资源/icon/skull.png" id="1_v3r2j"]
 [ext_resource type="Script" path="res://场景/敌人/物品/skull_coin.gd" id="2_g3bh1"]
+[ext_resource type="Script" path="res://脚本/Playercheckbox.gd" id="3_hurif"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17pev"]
+radius = 3.16228
 
 [node name="skull_coin" type="Sprite2D"]
 z_index = 2
 y_sort_enabled = true
 scale = Vector2(3, 3)
-texture = ExtResource("1_imr2u")
-region_enabled = true
+texture = ExtResource("1_v3r2j")
 region_rect = Rect2(536, 922, 7, 7)
 script = ExtResource("2_g3bh1")
+
+[node name="Playercheckbox" type="Area2D" parent="."]
+script = ExtResource("3_hurif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Playercheckbox"]
+shape = SubResource("CircleShape2D_17pev")
+disabled = true
+
+[connection signal="Ischeck" from="Playercheckbox" to="." method="_on_playercheckbox_ischeck"]

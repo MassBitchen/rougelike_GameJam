@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://bragrsgxmq10y"]
+
+[ext_resource type="Script" path="res://设置资源/gun/weapon.gd" id="1_d8lsg"]
+
+[resource]
+script = ExtResource("1_d8lsg")
+name = "Mini Gun"
+money = 0
+description = "初始枪械"
+ps = ""
+player_can_use = "res://场景/玩家/枪/gun_10/gun_10.tscn"
+Pickup = "res://场景/玩家/枪/gun_10/gun_10_pickup.tscn"

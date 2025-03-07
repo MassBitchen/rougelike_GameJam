@@ -5,6 +5,7 @@ class_name Player
 @onready var body: Node2D = $body
 #Timer
 @onready var foot_print_timer: Timer = $Timer/FootPrintTimer
+@onready var energy_timer: Timer = $Timer/EnergyTimer
 #速度相关
 const MAX_RUN_SPEED := 200
 var RUN_SPEED = 200
@@ -59,9 +60,6 @@ enum State{
 }
 func _ready() -> void:
 	stats.max_health = 5
-	stats.health = 5
-	stats.max_energy = 10
-	stats.energy = 10
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("tall") and interacting_with:
@@ -69,6 +67,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func tick_physics(state: State, _delta: float) -> void:
 	Player_globalposition()
+	if energy_timer.is_stopped():
+		stats.energy += 0.8 * _delta
 	match state:
 		State.IDLE_DOWN,State.IDLE_UP,State.IDLE_LR:
 			Player_move(_delta,1)
@@ -113,7 +113,7 @@ func get_next_state(state: State) -> int:
 				if velocity.y < 0:
 					return State.WALK_UP
 	#翻滚实现
-	if Input.is_action_just_pressed("roll") and stats.energy >= 5:
+	if Input.is_action_just_pressed("roll") and stats.energy >= 2:
 		if not state == State.ROLL_DOWN and not state == State.ROLL_UP and not state == State.ROLL_LR:
 			if mov_direction.x == 0:
 				if mov_direction.y > 0:
@@ -222,11 +222,14 @@ func transition_state(_from: State, to: State) -> void:
 			animation_player.play("walk_lr")
 		State.RUN_DOWN:
 			animation_player.play("run_down")
+			energy_timer.start()
 		State.RUN_UP:
 			animation_player.play("run_up")
 			weapon.z_index = -1
+			energy_timer.start()
 		State.RUN_LR:
 			animation_player.play("run_lr")
+			energy_timer.start()
 		State.ROLL_DOWN:
 			animation_player.play("roll_down")
 			weapon.visible = false
@@ -254,9 +257,8 @@ func transition_state(_from: State, to: State) -> void:
 
 #基础玩家脚本
 func Player_move(delta: float,rate: float) -> void:
-	if Input.get_action_strength("shift") and stats.energy > 0.3:
+	if Input.get_action_strength("shift"):
 		RUN_SPEED = MAX_RUN_SPEED
-		stats.energy -= 3 * delta
 	else:
 		RUN_SPEED = 2 * MAX_RUN_SPEED / 3
 	#实现玩家移动方向
@@ -305,3 +307,4 @@ func _on_hurtbox_hurt(hitbox: Variant) -> void:
 	stats.health -= pending_damage.amount
 	
 	Game.shake_camera(5)
+	

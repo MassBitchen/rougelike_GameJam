@@ -15,8 +15,8 @@ var knockback_direction
 var pending_damage
 var KNOCKBACK_AMOUNT := 100
 #远程敌人的设置
-var min_player_length = 300
-var max_player_length = 450
+var min_player_length = 200
+var max_player_length = 300
 #所有状态
 enum State{
 	IDLE_DOWN,

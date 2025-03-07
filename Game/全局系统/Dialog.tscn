@@ -33,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_vi4gx")
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+[node name="Colorect" type="ColorRect" parent="PanelContainer"]
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
@@ -72,7 +72,7 @@ Gods of consequence, yet mortals who feel.
 What palette dares claim this hybrid throne?
 You—alchemy of mind and silicon bone."
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="icon" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture = SubResource("AtlasTexture_idrcb")

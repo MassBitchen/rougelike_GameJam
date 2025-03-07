@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciw5sbsksayd4"]
+
+[ext_resource type="Script" path="res://全局系统/game_progress.gd" id="1_uje0b"]
+
+[node name="GameProgress" type="Node"]
+script = ExtResource("1_uje0b")

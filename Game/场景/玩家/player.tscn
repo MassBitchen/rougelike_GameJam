@@ -1070,6 +1070,10 @@ libraries = {
 [node name="FootPrintTimer" type="Timer" parent="Timer"]
 wait_time = 0.2
 
+[node name="EnergyTimer" type="Timer" parent="Timer"]
+wait_time = 0.6
+one_shot = true
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_gg5vm")
 

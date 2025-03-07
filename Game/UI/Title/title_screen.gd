@@ -13,6 +13,9 @@ extends Control
 
 var Player_1 = str("res://场景/玩家/player.tscn")
 
+func _ready() -> void:
+	SoundManager.setup_ui_sounds(self)
+
 func _on_start_pressed() -> void:
 	animation_player.play("start")
 

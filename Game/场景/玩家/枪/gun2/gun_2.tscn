@@ -31,36 +31,6 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_hkc00"]
-resource_name = "shoot"
-length = 0.8
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Player_shoot"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(9, -3), Vector2(6, -3), Vector2(9, -3)]
-}
-
 [sub_resource type="Animation" id="Animation_b3hs5"]
 resource_name = "reload"
 length = 2.0
@@ -91,6 +61,36 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_hkc00"]
+resource_name = "shoot"
+length = 0.8
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Player_shoot"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, -3), Vector2(6, -3), Vector2(9, -3)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4f1tj"]
 _data = {
 "RESET": SubResource("Animation_m3qg6"),
@@ -114,6 +114,7 @@ pick_up = "res://场景/玩家/枪/gun2/gun_2_pickup.tscn"
 shoot_sfx = "gun_2_shoot"
 reload_sfx = "reload_2"
 max_bullet_num = 5
+self_path = "res://场景/玩家/枪/gun2/gun_2.tscn"
 
 [node name="shootPos" type="Marker2D" parent="."]
 position = Vector2(7, -2)

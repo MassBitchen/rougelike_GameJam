@@ -52,6 +52,8 @@ func change_scene(path: String) -> void:
 	
 	tree.change_scene_to_file(path)
 	await tree.tree_changed
+	tree.current_scene.gun = GameProgress.now_gun
+	print(GameProgress.now_gun)
 	
 	tree.paused = false
 	tween = create_tween()

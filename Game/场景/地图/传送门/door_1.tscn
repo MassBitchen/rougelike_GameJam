@@ -1,24 +1,30 @@
 [gd_scene load_steps=5 format=3 uid="uid://dlhywlx0co5n1"]
 
-[ext_resource type="Script" path="res://脚本/Teleporter.gd" id="1_j5mim"]
+[ext_resource type="Script" path="res://场景/地图/传送门/door_1.gd" id="1_ju4db"]
 [ext_resource type="Texture2D" uid="uid://3xbne5qpo3sm" path="res://资源/door.png" id="2_6cri0"]
 [ext_resource type="PackedScene" uid="uid://cvrh5iso5kj1r" path="res://场景/玩家/组件/talk_icon.tscn" id="3_t272a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3ws8"]
 size = Vector2(63, 39)
 
-[node name="door" type="Area2D"]
+[node name="door_1" type="Area2D"]
 z_index = 2
 y_sort_enabled = true
-script = ExtResource("1_j5mim")
+scale = Vector2(1, 1e-05)
+script = ExtResource("1_ju4db")
+path_1 = "res://场景/level/2/battle_level_1.tscn"
+path_2 = "res://场景/level/2/battle_level_2.tscn"
+path_3 = "res://场景/level/2/battle_level_3.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_6cri0")
 offset = Vector2(0, -23)
+region_enabled = true
+region_rect = Rect2(6, 2, 55, 58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -17.5)
+position = Vector2(-1, -17)
 shape = SubResource("RectangleShape2D_m3ws8")
 
 [node name="talk_icon" parent="." instance=ExtResource("3_t272a")]

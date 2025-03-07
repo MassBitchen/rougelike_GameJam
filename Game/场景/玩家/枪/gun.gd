@@ -22,11 +22,13 @@ var self_pos
 @onready var bullet_num: Label = $CanvasLayer/bullet_num
 @onready var bullet_num_bar: TextureProgressBar = $bullet_num_bar
 
+@export_file("*.tscn") var self_path
 
 func _ready() -> void:
 	bullet_num_bar.max_value = max_bullet_num
 	bullet_num_bar.value = bullet_num_bar.max_value
 	self_tree = get_parent().get_parent().get_parent()
+	GameProgress.now_gun = self_path
 
 func _unhandled_input(event: InputEvent) -> void:
 	pass

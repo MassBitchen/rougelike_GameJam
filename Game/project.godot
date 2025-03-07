@@ -21,6 +21,7 @@ GlobalSignal="*res://脚本/全局/GlobalSignal.gd"
 Game="*res://全局系统/Game.tscn"
 Dialog="*res://全局系统/Dialog.tscn"
 SoundManager="*res://全局系统/sound_manager.tscn"
+GameProgress="*res://全局系统/game_progress.tscn"
 
 [display]
 

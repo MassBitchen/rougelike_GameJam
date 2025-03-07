@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://78wt1kdiarjq"]
+
+[ext_resource type="Script" path="res://场景/地图/敌人生成/enemy_generate.gd" id="1_beu4b"]
+
+[node name="Enemy_generate" type="Node2D"]
+script = ExtResource("1_beu4b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

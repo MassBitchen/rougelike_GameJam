@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfa6x4jbtw6gn"]
+
+[ext_resource type="PackedScene" uid="uid://d0urka1r7ke00" path="res://场景/level/level.tscn" id="1_xsyh5"]
+[ext_resource type="Script" path="res://场景/level/sword_level.gd" id="2_jwief"]
+[ext_resource type="PackedScene" uid="uid://dlhywlx0co5n1" path="res://场景/地图/传送门/door_1.tscn" id="3_f56wh"]
+
+[node name="SwordLevel" instance=ExtResource("1_xsyh5")]
+script = ExtResource("2_jwief")
+
+[node name="door_1" parent="tile" index="1" instance=ExtResource("3_f56wh")]
+position = Vector2(0, 201)

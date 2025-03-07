@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsxnudw2b7dtw"]
+
+[ext_resource type="Script" path="res://场景/地图/传送门/door_2.gd" id="1_emyfi"]
+[ext_resource type="Texture2D" uid="uid://bwg88jstp6lkm" path="res://资源/door_2.png" id="2_iir7w"]
+[ext_resource type="PackedScene" uid="uid://cvrh5iso5kj1r" path="res://场景/玩家/组件/talk_icon.tscn" id="3_2rtsw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3ws8"]
+size = Vector2(63, 39)
+
+[node name="door_2" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+scale = Vector2(1, 1e-05)
+script = ExtResource("1_emyfi")
+path_1 = "res://场景/level/3/sword_level_1.tscn"
+path_2 = "res://场景/level/3/sword_level_2.tscn"
+path_3 = "res://场景/level/3/sword_level_1.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_iir7w")
+offset = Vector2(0, -23)
+region_enabled = true
+region_rect = Rect2(6, 2, 55, 58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -17)
+shape = SubResource("RectangleShape2D_m3ws8")
+
+[node name="talk_icon" parent="." instance=ExtResource("3_2rtsw")]
+visible = false
+position = Vector2(-1, -89)
+talk_name = "entry"
+
+[connection signal="enter" from="." to="." method="_on_enter"]
+[connection signal="exit" from="." to="." method="_on_exit"]

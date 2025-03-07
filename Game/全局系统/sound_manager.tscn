@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://fq68j5aklqch"]
+[gd_scene load_steps=9 format=3 uid="uid://fq68j5aklqch"]
 
 [ext_resource type="Script" path="res://全局系统/sound_manager.gd" id="1_yjkha"]
+[ext_resource type="AudioStream" uid="uid://70bdksif4kwf" path="res://资源/7/SFX/sound (6).wav" id="2_nsjvb"]
 [ext_resource type="AudioStream" uid="uid://r62lucue043" path="res://资源/7/SFX/gun_2_shoot.wav" id="3_3sj5o"]
 [ext_resource type="AudioStream" uid="uid://cylirfe8a2whx" path="res://资源/7/SFX/enemy_die.wav" id="3_av14k"]
 [ext_resource type="AudioStream" uid="uid://b0aa4xt73k5ic" path="res://资源/7/SFX/gun_1_shoot.wav" id="3_d5mpw"]
+[ext_resource type="AudioStream" uid="uid://dv25c42txykqj" path="res://资源/7/SFX/sound (7).wav" id="3_lk2a1"]
 [ext_resource type="AudioStream" uid="uid://cwti5f4ddar75" path="res://资源/7/SFX/reload_1.wav" id="4_7ogab"]
 [ext_resource type="AudioStream" uid="uid://d1koki5dp0psk" path="res://资源/7/SFX/reload_2.wav" id="5_ajh4g"]
 
@@ -13,9 +15,11 @@ script = ExtResource("1_yjkha")
 [node name="SFX" type="Node" parent="."]
 
 [node name="UIPress" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_nsjvb")
 bus = &"SFX"
 
 [node name="UIFocus" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_lk2a1")
 bus = &"SFX"
 
 [node name="player_1_run" type="AudioStreamPlayer" parent="SFX"]

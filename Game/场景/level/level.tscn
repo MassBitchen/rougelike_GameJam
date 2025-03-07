@@ -9,6 +9,7 @@ y_sort_enabled = true
 script = ExtResource("1_pyl04")
 
 [node name="tile" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="tile"]
 tile_set = ExtResource("1_0p7yn")

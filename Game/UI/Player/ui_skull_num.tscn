@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://qh3qu30wn6ir"]
+[gd_scene load_steps=3 format=3 uid="uid://qh3qu30wn6ir"]
 
 [ext_resource type="Script" path="res://UI/Player/ui_skull_num.gd" id="1_bina3"]
-[ext_resource type="Texture2D" uid="uid://c51w53tgl3exc" path="res://资源/4/1/Tribe Warrior 64_96.png" id="1_mosbx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lxjkj"]
-atlas = ExtResource("1_mosbx")
-region = Rect2(472, 922, 7, 7)
+[ext_resource type="Texture2D" uid="uid://oycuhkodqlxr" path="res://资源/icon/skull.png" id="2_y0pjj"]
 
 [node name="UI_skull_num" type="Control"]
 layout_mode = 3
@@ -25,7 +21,7 @@ offset_bottom = 103.0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_lxjkj")
+texture = ExtResource("2_y0pjj")
 expand_mode = 2
 
 [node name="num" type="Label" parent="HBoxContainer"]
