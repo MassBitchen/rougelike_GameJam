@@ -1,12 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://78wt1kdiarjq"]
+[gd_scene load_steps=5 format=3 uid="uid://78wt1kdiarjq"]
 
 [ext_resource type="Script" path="res://场景/地图/敌人生成/enemy_generate.gd" id="1_beu4b"]
+[ext_resource type="PackedScene" uid="uid://cuw3l6rx8n2gq" path="res://场景/敌人/Enemy1/enemy_1.tscn" id="2_0foq3"]
+[ext_resource type="PackedScene" uid="uid://btvqlflahwtvj" path="res://场景/敌人/Enemy2/enemy_2.tscn" id="3_p2712"]
+[ext_resource type="PackedScene" uid="uid://cu7ijvdaj1hcq" path="res://场景/敌人/Enemy3/enemy_3.tscn" id="4_kydh5"]
 
 [node name="Enemy_generate" type="Node2D"]
 script = ExtResource("1_beu4b")
+melee_enemy_scenes = Array[PackedScene]([ExtResource("2_0foq3"), ExtResource("3_p2712")])
+ranged_enemy_scene = ExtResource("4_kydh5")
+min_spawn_interval = 5.0
+max_spawn_interval = 10.0
+melee_spawn_weight = 3
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
+wait_time = 5.0
 autostart = true
+
+[node name="pos1" type="Marker2D" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1904,7 +1904,7 @@ avoidance_enabled = true
 radius = 6.0
 
 [node name="Stats" parent="." index="6"]
-max_health = 8.0
+max_health = 100
 
 [connection signal="hurt" from="Body/Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="timeout" from="Timer/PathTimer" to="." method="_on_path_timer_timeout"]

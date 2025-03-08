@@ -8,5 +8,6 @@ func _ready() -> void:
 	var P = player.instantiate()
 	add_child(P)
 	var g = load(gun).instantiate()
+	g.now_bullet_num = GameProgress.now_gun_bullet_num
 	g.position = P.get_node("body").get_node("gunpos").position
 	P.get_node("weapon").add_child(g)

@@ -19,7 +19,7 @@ scale = Vector2(0.1, 0.1)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_o3wa5")
-normal_damage = 3.0
+normal_damage = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_0dh5w")

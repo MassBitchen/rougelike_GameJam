@@ -1,0 +1,184 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4n4wioip7ssg"]
+
+[ext_resource type="Texture2D" uid="uid://c21jq62beecjg" path="res://资源/1/gun/gun5.png" id="1_qqucg"]
+[ext_resource type="Script" path="res://场景/玩家/枪/gun.gd" id="2_vdwes"]
+[ext_resource type="Texture2D" uid="uid://dbkkoyd1ydt7x" path="res://资源/3/UI.png" id="3_fo12i"]
+
+[sub_resource type="Animation" id="Animation_35yc1"]
+resource_name = "shoot"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"Player_shoot"
+}, {
+"args": [],
+"method": &"Player_shoot"
+}, {
+"args": [],
+"method": &"Player_shoot"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_rnxrl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.60745]
+}
+
+[sub_resource type="Animation" id="Animation_5slqb"]
+resource_name = "reload"
+length = 0.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.60745]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0), Vector2(6, 0), Vector2(9, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_op3o7"]
+_data = {
+"RESET": SubResource("Animation_rnxrl"),
+"reload": SubResource("Animation_5slqb"),
+"shoot": SubResource("Animation_35yc1")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga82b"]
+atlas = ExtResource("3_fo12i")
+region = Rect2(625, 405, 174, 8)
+
+[node name="gun_5" type="Sprite2D"]
+rotation = 1.60745
+texture = ExtResource("1_qqucg")
+offset = Vector2(6, 0)
+script = ExtResource("2_vdwes")
+path = "res://场景/玩家/子弹/bullet_1.tscn"
+bullet_speed = 800
+bullet_free_time = 5
+bullet_offset = 1.0
+pick_up = "res://场景/玩家/枪/gun_5/gun_5_pickup.tscn"
+shoot_sfx = "gun_1_shoot"
+reload_sfx = "reload_1"
+max_bullet_num = 15
+self_path = "res://场景/玩家/枪/gun_5/gun_5.tscn"
+
+[node name="shootPos" type="Marker2D" parent="."]
+position = Vector2(23, -3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_op3o7")
+}
+
+[node name="bullet_num_bar" type="TextureProgressBar" parent="."]
+offset_left = -18.0
+offset_top = 6.00001
+offset_right = 156.0
+offset_bottom = 14.0
+rotation = -1.5708
+scale = Vector2(0.1, 0.3)
+max_value = 1.0
+value = 1.0
+texture_progress = SubResource("AtlasTexture_ga82b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="gun_texture" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -659.0
+offset_top = -1082.0
+offset_right = -611.0
+offset_bottom = -1034.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture = ExtResource("1_qqucg")
+
+[node name="bullet_num" type="Label" parent="CanvasLayer"]
+offset_left = 366.0
+offset_top = 28.0
+offset_right = 446.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 24
+text = "10/10"
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

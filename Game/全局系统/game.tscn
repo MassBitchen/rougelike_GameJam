@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://beupk015eomgy"]
+[gd_scene load_steps=13 format=3 uid="uid://beupk015eomgy"]
 
 [ext_resource type="Script" path="res://全局系统/Game.gd" id="1_lyxo3"]
 [ext_resource type="Shader" path="res://shader/scanlines.gdshader" id="2_3vych"]
 [ext_resource type="Texture2D" uid="uid://dbkkoyd1ydt7x" path="res://资源/3/UI.png" id="3_81k2r"]
 [ext_resource type="Shader" path="res://shader/scanlines_2.gdshader" id="3_86u5j"]
 [ext_resource type="Script" path="res://脚本/Stats.gd" id="3_t43t4"]
+[ext_resource type="PackedScene" uid="uid://xexrmk8bgt4u" path="res://UI/组件/volume_slider.tscn" id="6_k1mk6"]
+[ext_resource type="Theme" uid="uid://dtbw6mtjtvvej" path="res://title_screen.tres" id="6_u42qv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ye88v"]
 shader = ExtResource("2_3vych")
@@ -221,6 +223,7 @@ _data = {
 
 [node name="Game" type="CanvasLayer"]
 process_mode = 3
+layer = 10
 script = ExtResource("1_lyxo3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -302,3 +305,313 @@ theme_override_font_sizes/font_size = 64
 text = "BATTLE"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="options" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_u42qv")
+
+[node name="ColorRect" type="ColorRect" parent="options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -453.5
+offset_top = -506.5
+offset_right = 453.5
+offset_bottom = 506.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.384314)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -330.0
+offset_right = 326.0
+offset_bottom = 263.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 108
+bbcode_enabled = true
+text = "
+[shake rate=20.0][center]OPTIONS
+[/center][/shake]"
+
+[node name="options_back" type="Button" parent="options"]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 311.0
+offset_right = 68.0
+offset_bottom = 379.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "back"
+
+[node name="options_back2" type="Button" parent="options"]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 394.0
+offset_right = 68.0
+offset_bottom = 462.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "title"
+
+[node name="language2" type="HBoxContainer" parent="options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -874.0
+offset_right = 332.0
+offset_bottom = -806.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 256
+
+[node name="Label" type="Label" parent="options/language2"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 2
+text = "language"
+
+[node name="language" type="OptionButton" parent="options/language2"]
+layout_mode = 2
+flat = true
+selected = 1
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "简体中文"
+popup/item_1/text = "english"
+popup/item_1/id = 1
+
+[node name="scanline" type="HBoxContainer" parent="options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -830.0
+offset_right = 332.0
+offset_bottom = -762.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 256
+
+[node name="Label" type="Label" parent="options/scanline"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 2
+text = "scanline"
+
+[node name="scanline_button" type="CheckButton" parent="options/scanline"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Master" type="HBoxContainer" parent="options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -783.0
+offset_right = 374.0
+offset_bottom = -715.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 256
+
+[node name="Label" type="Label" parent="options/Master"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 2
+text = "master"
+
+[node name="VolumeSlider" parent="options/Master" instance=ExtResource("6_k1mk6")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BGM" type="HBoxContainer" parent="options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -740.0
+offset_right = 374.0
+offset_bottom = -672.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 256
+
+[node name="Label" type="Label" parent="options/BGM"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 2
+text = "bgm"
+
+[node name="VolumeSlider" parent="options/BGM" instance=ExtResource("6_k1mk6")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bus = &"BGM"
+
+[node name="SFX" type="HBoxContainer" parent="options"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -696.0
+offset_right = 374.0
+offset_bottom = -628.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 256
+
+[node name="Label" type="Label" parent="options/SFX"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 2
+text = "sfx"
+
+[node name="VolumeSlider" parent="options/SFX" instance=ExtResource("6_k1mk6")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bus = &"SFX"
+
+[node name="Gameover" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_u42qv")
+
+[node name="ColorRect" type="ColorRect" parent="Gameover"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -453.5
+offset_top = -506.5
+offset_right = 453.5
+offset_bottom = 506.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.384314)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Gameover"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -330.0
+offset_right = 326.0
+offset_bottom = 263.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 108
+bbcode_enabled = true
+text = "
+[shake rate=20.0][center]GAME OVER
+[/center][/shake]"
+
+[node name="options_back2" type="Button" parent="Gameover"]
+custom_minimum_size = Vector2(64, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = 394.0
+offset_right = 68.0
+offset_bottom = 462.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "title"
+
+[node name="1" type="HBoxContainer" parent="Gameover"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -696.0
+offset_right = 374.0
+offset_bottom = -628.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 256
+
+[node name="en" type="Label" parent="Gameover/1"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 2
+text = "queen_enemys"
+
+[node name="2" type="HBoxContainer" parent="Gameover"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -586.0
+offset_right = 374.0
+offset_bottom = -518.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 256
+
+[node name="le" type="Label" parent="Gameover/2"]
+custom_minimum_size = Vector2(192, 36)
+layout_mode = 2
+text = "completed_levels"
+
+[connection signal="pressed" from="options/options_back" to="." method="_on_options_back_pressed"]
+[connection signal="pressed" from="options/options_back2" to="." method="_on_options_back_2_pressed"]
+[connection signal="item_selected" from="options/language2/language" to="." method="_on_language_item_selected"]
+[connection signal="pressed" from="options/scanline/scanline_button" to="." method="_on_scanline_button_pressed"]
+[connection signal="pressed" from="Gameover/options_back2" to="." method="_on_options_back_2_pressed"]

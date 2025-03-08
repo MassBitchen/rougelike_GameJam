@@ -20,11 +20,14 @@ enum Direction {
 		if not is_node_ready():
 			await ready
 		body.scale.x = direction
+var shader := preload("res://shader/outline.gdshader")
 
 func _ready() -> void:
 	randomize()
 	#玩家位置
 	GlobalSignal.connect("player_position_update", Callable(self,"_on_player_position_update"))
+	$Body/Sprite2D.material
+		
 
 func _on_player_position_update(PlayerPosition):
 	PlayerPos = PlayerPosition

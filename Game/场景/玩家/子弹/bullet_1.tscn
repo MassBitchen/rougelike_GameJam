@@ -19,7 +19,7 @@ collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_b58d2")
 free_time = 1
-normal_damage = 1.0
+normal_damage = 30.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_i1egb")

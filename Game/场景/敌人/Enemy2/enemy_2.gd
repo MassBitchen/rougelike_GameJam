@@ -119,6 +119,7 @@ func transition_state(_from: State, to: State) -> void:
 			animation_player.play("die")
 			navigation_agent_2d.avoidance_enabled = false
 			SoundManager.play_sfx("enemy_die")
+			GameProgress.queen_enemy += 1
 			Enemys_skull(1)
 
 #基础移动函数

@@ -7,7 +7,8 @@ var skull_num := 0
 
 func _ready() -> void:
 	GlobalSignal.connect("player_skull_add", Callable(self , "_on_player_skull_add"))
+	num.text = str(":") + str(GameProgress.skull_num)
 
 func _on_player_skull_add() -> void:
-	skull_num += 1
-	num.text = str(":") + str(skull_num)
+	GameProgress.skull_num += 1
+	num.text = str(":") + str(GameProgress.skull_num)

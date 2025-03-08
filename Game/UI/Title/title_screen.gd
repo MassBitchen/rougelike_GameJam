@@ -14,6 +14,8 @@ extends Control
 var Player_1 = str("res://场景/玩家/player.tscn")
 
 func _ready() -> void:
+	Game.player_stats.health = Game.player_stats.max_health
+	GameProgress.clear()
 	SoundManager.setup_ui_sounds(self)
 
 func _on_start_pressed() -> void:

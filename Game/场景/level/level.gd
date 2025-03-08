@@ -14,6 +14,7 @@ func new_game(player: String) -> void:
 	Player.get_node("weapon").add_child(g)
 
 func _ready() -> void:
+	GameProgress.completed_levels += 1
 	if main_bgm:
 		SoundManager.play_bgm(main_bgm)
 	var used := tile_map.get_used_rect().grow(-1)

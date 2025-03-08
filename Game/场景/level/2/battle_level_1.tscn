@@ -25,3 +25,18 @@ position = Vector2(-18, -377)
 
 [node name="Enemy3" parent="Enemys" index="2" instance=ExtResource("4_dfhjt")]
 position = Vector2(-261, -79)
+
+[node name="Enemy_generate" parent="Enemys" index="3"]
+position = Vector2(-385, -201)
+
+[node name="Enemy_generate2" parent="Enemys" index="4"]
+position = Vector2(-697, -441)
+
+[node name="Enemy_generate3" parent="Enemys" index="5"]
+position = Vector2(-687, 234)
+
+[node name="Enemy_generate4" parent="Enemys" index="6"]
+position = Vector2(717, -464)
+
+[node name="Enemy_generate5" parent="Enemys" index="7"]
+position = Vector2(6, -102)

@@ -2,9 +2,12 @@ extends Interactable
 
 @onready var talk_icon: AnimatedSprite2D = $talk_icon
 
+
 var velocity :Vector2 = Vector2(0,0)
 var k = 0
 @export_file("*.tscn") var gun
+
+var now_bullet_num := 1
 
 func _ready() -> void:
 	randomize()
@@ -28,6 +31,7 @@ func _on_interacted() -> void:
 	for child in Game_Player.get_node("weapon").get_children():
 		child.queue_free()
 	var g = load(gun).instantiate()
+	g.now_bullet_num = now_bullet_num
 	g.position = Game_Player.get_node("body").get_node("gunpos").position
 	Game_Player.get_node("weapon").add_child(g)
 	self.queue_free()

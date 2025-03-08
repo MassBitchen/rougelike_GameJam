@@ -14,7 +14,7 @@ scale = Vector2(1, 1e-05)
 script = ExtResource("1_emyfi")
 path_1 = "res://场景/level/3/sword_level_1.tscn"
 path_2 = "res://场景/level/3/sword_level_2.tscn"
-path_3 = "res://场景/level/3/sword_level_1.tscn"
+path_3 = "res://场景/level/3/sword_level_3.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)

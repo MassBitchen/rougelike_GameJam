@@ -7,8 +7,8 @@ class_name Player
 @onready var foot_print_timer: Timer = $Timer/FootPrintTimer
 @onready var energy_timer: Timer = $Timer/EnergyTimer
 #速度相关
-const MAX_RUN_SPEED := 200
-var RUN_SPEED = 200
+const MAX_RUN_SPEED := 150
+var RUN_SPEED = 150
 var acceleration = RUN_SPEED / 0.01
 #玩家位置
 var PlayerPosition :Vector2 = Vector2.ZERO
@@ -253,6 +253,8 @@ func transition_state(_from: State, to: State) -> void:
 			animation_player.play("die")
 			for gun in weapon.get_children():
 				gun.queue_free()
+			await get_tree().create_timer(1.5).timeout
+			Game.gameover.show()
 			
 
 #基础玩家脚本

@@ -18,9 +18,10 @@ var self_pos
 @export var shoot_sfx :String
 @export var reload_sfx :String
 @export var max_bullet_num :int
-@onready var now_bullet_num := max_bullet_num
 @onready var bullet_num: Label = $CanvasLayer/bullet_num
 @onready var bullet_num_bar: TextureProgressBar = $bullet_num_bar
+
+var now_bullet_num = 1
 
 @export_file("*.tscn") var self_path
 
@@ -65,6 +66,7 @@ func _physics_process(_delta: float) -> void:
 	bullet_num_bar.value = now_bullet_num
 	bullet_num.text = str(now_bullet_num) + str("/") + str(max_bullet_num)
 	
+	GameProgress.now_gun_bullet_num = now_bullet_num
 	
 func Player_shoot() -> void:
 	SoundManager.play_sfx(shoot_sfx)
@@ -83,6 +85,7 @@ func Player_shoot() -> void:
 func _on_tree_exited() -> void:
 	var g = load(pick_up).instantiate()
 	g.global_position = self_pos
+	g.now_bullet_num = now_bullet_num
 	#这里需要修改，感觉写的不太好
 	self_tree.add_child(g)
 

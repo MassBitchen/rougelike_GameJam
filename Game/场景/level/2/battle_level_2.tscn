@@ -16,3 +16,18 @@ tile_set = ExtResource("2_hd2g8")
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD///r/FgAAAAAAAgD7//7/FgAAAAAABQACAP//FgAAAAAABgD9/wEAFgAAAAAABwACAAMAFgAAAAAABgD//wMAFgAAAAAABQD6/wQAFgAAAAAABwAIAP//FgAAAAAABQD0////FgAAAAAABgD2//v/FgAAAAAABwAIAPr/FgAAAAAABgA=")
 tile_set = ExtResource("2_hd2g8")
+
+[node name="Enemy_generate" parent="Enemys" index="0"]
+position = Vector2(24, -153)
+
+[node name="Enemy_generate2" parent="Enemys" index="1"]
+position = Vector2(704, -450)
+
+[node name="Enemy_generate3" parent="Enemys" index="2"]
+position = Vector2(-705, -469)
+
+[node name="Enemy_generate4" parent="Enemys" index="3"]
+position = Vector2(727, 289)
+
+[node name="Enemy_generate5" parent="Enemys" index="4"]
+position = Vector2(-703, 289)
